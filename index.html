@@ -8,17 +8,25 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      color: #fff;
-      text-align: center;
+      background: url('https://source.unsplash.com/1600x900/?nature,calm') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4); /* dark transparent overlay */
+      backdrop-filter: brightness(1.1);
+      -webkit-backdrop-filter: brightness(1.1);
+      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh;
-      background: url('https://source.unsplash.com/1600x900/?nature,calm') no-repeat center center fixed;
-      background-size: cover;
+      text-align: center;
+      color: #fff;
       padding: 1rem;
-      backdrop-filter: brightness(0.8);
     }
 
     h1 {
@@ -70,20 +78,22 @@
   </style>
 </head>
 <body>
-  <h1>A Gentle Space</h1>
-  <div class="quote" id="quote"></div>
-  <div class="pause" id="pause"></div>
-  <button class="button" onclick="startBreath()">Pause & Breathe</button>
+  <div class="overlay">
+    <h1>A Gentle Space</h1>
+    <div class="quote" id="quote"></div>
+    <div class="pause" id="pause"></div>
+    <button class="button" onclick="startBreath()">Pause & Breathe</button>
 
-  <div class="links">
-    <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
-    <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
-    <a href="about.html">About This Space</a>
+    <div class="links">
+      <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
+      <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
+      <a href="about.html">About This Space</a>
+    </div>
+
+    <footer>
+      Made with metta and respect for all beings
+    </footer>
   </div>
-
-  <footer>
-    Made with metta and respect for all beings
-  </footer>
 
   <script>
     const quotes = [
