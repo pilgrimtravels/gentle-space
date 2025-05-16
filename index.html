@@ -8,21 +8,32 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #f9f6f1;
-      color: #333;
+      color: #fff;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      min-height: 100vh;
+      background: url('https://source.unsplash.com/1600x900/?nature,calm') no-repeat center center fixed;
+      background-size: cover;
       padding: 1rem;
+      backdrop-filter: brightness(0.8);
     }
-    .quote {
-      font-size: 1.5rem;
-      margin: 1.5rem 0;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+    }
+
+    .quote, .pause {
+      font-size: 1.3rem;
+      margin: 1rem 0;
       font-style: italic;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
+
     .button {
       padding: 0.75rem 1.5rem;
       background-color: #86b38f;
@@ -32,35 +43,44 @@
       font-size: 1rem;
       cursor: pointer;
       margin: 1rem;
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
     }
+
     .button:hover {
       background-color: #729876;
     }
-    footer {
-      position: absolute;
-      bottom: 1rem;
-      font-size: 0.9rem;
-    }
+
     .links a {
       display: block;
-      color: #555;
+      color: #eee;
       text-decoration: none;
       margin: 0.5rem 0;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
+
     .links a:hover {
       text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
   <h1>A Gentle Space</h1>
   <div class="quote" id="quote"></div>
+  <div class="pause" id="pause"></div>
   <button class="button" onclick="startBreath()">Pause & Breathe</button>
+
   <div class="links">
     <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
     <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
     <a href="about.html">About This Space</a>
   </div>
+
   <footer>
     Made with metta and respect for all beings
   </footer>
@@ -76,7 +96,18 @@
       "Being vegan is practicing metta in action."
     ];
 
+    const pauses = [
+      "Breathe in peace, breathe out love.",
+      "Let this moment be enough.",
+      "Feel the breath as it is.",
+      "Compassion begins in stillness.",
+      "You are here. That is enough.",
+      "Just for now, let go.",
+      "Metta for all beings, including you."
+    ];
+
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById("pause").innerText = "Today’s Pause: " + pauses[Math.floor(Math.random() * pauses.length)];
 
     function startBreath() {
       alert("Close your eyes. Breathe in… Breathe out…");
