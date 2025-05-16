@@ -15,35 +15,24 @@
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      background-size: cover;
-      background-position: center center;
+      background-color: #2a2a2a; /* fallback color */
       background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
       padding: 1rem;
-      /* Optional overlay effect */
-      position: relative;
-      z-index: 0;
-    }
-
-    /* Optional overlay for better text contrast */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.35);
-      z-index: -1;
     }
 
     h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
     }
 
     .quote, .pause {
       font-size: 1.3rem;
       margin: 1rem 0;
       font-style: italic;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
 
     .button {
@@ -55,7 +44,7 @@
       font-size: 1rem;
       cursor: pointer;
       margin: 1rem;
-      box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
     }
 
     .button:hover {
@@ -67,7 +56,7 @@
       color: #eee;
       text-decoration: none;
       margin: 0.5rem 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     }
 
     .links a:hover {
@@ -77,7 +66,7 @@
     footer {
       margin-top: 2rem;
       font-size: 0.9rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
   </style>
 </head>
@@ -98,7 +87,6 @@
   </footer>
 
   <script>
-    // Quotes about Vipassana and veganism
     const quotes = [
       "May all beings be happy.",
       "Observe the breath. Observe the truth.",
@@ -109,7 +97,6 @@
       "Being vegan is practicing metta in action."
     ];
 
-    // Gentle pauses for reflection
     const pauses = [
       "Breathe in peace, breathe out love.",
       "Let this moment be enough.",
@@ -120,28 +107,21 @@
       "Metta for all beings, including you."
     ];
 
-    // Pick and display a random quote and pause text
     document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
     document.getElementById("pause").innerText = "Today’s Pause: " + pauses[Math.floor(Math.random() * pauses.length)];
 
-    // Show alert on Pause & Breathe button click
     function startBreath() {
       alert("Close your eyes. Breathe in… Breathe out…");
     }
 
-    // Set random background image from Unsplash with cache-busting
     function setRandomBackground() {
       const width = window.innerWidth || 1600;
       const height = window.innerHeight || 900;
-      const url = `https://source.unsplash.com/featured/${width}x${height}/?nature,calm&sig=${Math.floor(Math.random() * 10000)}`;
+      const url = `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 10000)}`;
       document.body.style.backgroundImage = `url('${url}')`;
     }
 
-    // Initialize background on page load
     setRandomBackground();
-
-    // Optional: Update background every 5 minutes (300000 ms)
-    // setInterval(setRandomBackground, 300000);
   </script>
 </body>
 </html>
