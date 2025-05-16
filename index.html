@@ -8,38 +8,46 @@
     body {
       margin: 0;
       font-family: sans-serif;
-      background: url('https://source.unsplash.com/1600x900/?nature,calm') no-repeat center center fixed;
-      background-size: cover;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.3); /* lighter overlay */
-      width: 100%;
-      min-height: 100vh;
+      color: #fff;
+      text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
-      color: #fff;
-      text-align: center;
+      min-height: 100vh;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center fixed;
+      background-size: cover;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Dark overlay to improve text visibility */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 0;
+    }
+
+    /* Content container sits above overlay */
+    body > * {
+      position: relative;
+      z-index: 1;
     }
 
     h1 {
       font-size: 2.5rem;
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+      margin-bottom: 0.5rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
 
     .quote, .pause {
       font-size: 1.3rem;
       margin: 1rem 0;
       font-style: italic;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
 
     .button {
@@ -51,7 +59,8 @@
       font-size: 1rem;
       cursor: pointer;
       margin: 1rem;
-      box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+      box-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+      transition: background-color 0.3s ease;
     }
 
     .button:hover {
@@ -63,7 +72,7 @@
       color: #eee;
       text-decoration: none;
       margin: 0.5rem 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
     .links a:hover {
@@ -73,27 +82,25 @@
     footer {
       margin-top: 2rem;
       font-size: 0.9rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>A Gentle Space</h1>
-    <div class="quote" id="quote"></div>
-    <div class="pause" id="pause"></div>
-    <button class="button" onclick="startBreath()">Pause & Breathe</button>
+  <h1>A Gentle Space</h1>
+  <div class="quote" id="quote"></div>
+  <div class="pause" id="pause"></div>
+  <button class="button" onclick="startBreath()">Pause & Breathe</button>
 
-    <div class="links">
-      <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
-      <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
-      <a href="about.html">About This Space</a>
-    </div>
-
-    <footer>
-      Made with metta and respect for all beings
-    </footer>
+  <div class="links">
+    <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
+    <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
+    <a href="about.html">About This Space</a>
   </div>
+
+  <footer>
+    Made with metta and respect for all beings
+  </footer>
 
   <script>
     const quotes = [
