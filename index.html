@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Gentle Space</title>
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <!-- Link to your external CSS file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>A Gentle Space</h1>
-  <div class="quote" id="quote"></div>
-  <div class="pause" id="pause"></div>
+  <div class="quote" id="quote">May all beings be happy.</div>
+  <div class="pause" id="pause">Today’s Pause: Breathe in peace, breathe out love.</div>
   <button class="button" onclick="startBreath()">Pause & Breathe</button>
 
   <div class="links">
@@ -23,36 +24,15 @@
     Made with metta and respect for all beings
   </footer>
 
+  <!-- JavaScript to insert a random background image -->
   <script>
-    const quotes = [
-      "May all beings be happy.",
-      "Observe the breath. Observe the truth.",
-      "Peace begins on your plate.",
-      "Awareness and compassion go hand in hand.",
-      "To harm another is to harm oneself.",
-      "Liberation through self-observation.",
-      "Being vegan is practicing metta in action."
-    ];
+    const randomNum = Math.floor(Math.random() * 1000);
+    document.documentElement.style.setProperty('--bg-url', `url('https://picsum.photos/1600/900?random=${randomNum}')`);
 
-    const pauses = [
-      "Breathe in peace, breathe out love.",
-      "Let this moment be enough.",
-      "Feel the breath as it is.",
-      "Compassion begins in stillness.",
-      "You are here. That is enough.",
-      "Just for now, let go.",
-      "Metta for all beings, including you."
-    ];
-
-    document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("pause").innerText = "Today’s Pause: " + pauses[Math.floor(Math.random() * pauses.length)];
-
+    // Optional: breathing alert for button
     function startBreath() {
       alert("Close your eyes. Breathe in… Breathe out…");
     }
-
-    // Set random background image
-    document.body.style.backgroundImage = `url('https://picsum.photos/1600/900?random=${Math.floor(Math.random() * 1000)}')`;
   </script>
 </body>
 </html>
