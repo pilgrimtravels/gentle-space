@@ -1,76 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>  
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAIAAAAlC+aJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABNxJREFUeNrsWEtOwzAM/ZvAS7yCfQShvQdxB+wZHyCGipPyTVY1ZDbVSaZcNUTSAxvKzt7qPDc7PcljO1m+1nMXBtUq+bwCwfwz+QgnD2BxlI8VyPmDHxyNf+3j5u59CWmmTyqtzTF86E5azIBnR3x0Psp3d/1MRuW+g7lfKjR2GxyT2ogWv+UdYdwQldZTLX6MXKOeLBBbHR7xflPl+aALq2LMxT6LcWbCmb9vqFOvnjxi2z4QGde/N4gtyR0N2hkaeEfl0gG+AZRrM5DX7gtQ6hD9oAJ6Q6wLvVDEoGUmAu10Xlx+wEl5p58XBRfS7cR1NivpyA2p6eI+dMgZvB02KSMrg1NuAQ8IAtL+GfA7wYEbVTCBnaReDQQQNY5x8nlqTRpJ5QyQCeZ0kQYs7lwAegykTAVgORFfkDeAokEbUPQZiAgqNn0eYAuEDrIEhpl7kEu60+2mWNGYAdyH9APYCCwV5A9c4gpq5fAEsAUe+jShkAv8FyJsgwtI9cASnyAAAAAElFTkSuQmCC" />
   <title>A Gentle Space</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      color: #fff;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background-color: #2a2a2a; /* fallback color */
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      padding: 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-
-    .quote, .pause {
-      font-size: 1.3rem;
-      margin: 1rem 0;
-      font-style: italic;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-
-    .button {
-      padding: 0.75rem 1.5rem;
-      background-color: #86b38f;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 1rem;
-      box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
-    }
-
-    .button:hover {
-      background-color: #729876;
-    }
-
-    .links a {
-      display: block;
-      color: #eee;
-      text-decoration: none;
-      margin: 0.5rem 0;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-    }
-  </style>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>A Gentle Space</h1>
@@ -116,14 +51,8 @@
       alert("Close your eyes. Breathe in… Breathe out…");
     }
 
-    function setRandomBackground() {
-      const width = window.innerWidth || 1600;
-      const height = window.innerHeight || 900;
-      const url = `https://picsum.photos/${width}/${height}?random=${Math.floor(Math.random() * 10000)}`;
-      document.body.style.backgroundImage = `url('${url}')`;
-    }
-
-    setRandomBackground();
+    // Set random background image
+    document.body.style.backgroundImage = `url('https://picsum.photos/1600/900?random=${Math.floor(Math.random() * 1000)}')`;
   </script>
 </body>
 </html>
