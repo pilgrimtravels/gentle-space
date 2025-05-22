@@ -1,3 +1,22 @@
+:root {
+  --bg-url: url('https://picsum.photos/1600/900?random=1');
+}
+
+body {
+  background-image: var(--bg-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 body {
   margin: 0;
   font-family: sans-serif;
