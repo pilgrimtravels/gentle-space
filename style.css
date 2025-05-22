@@ -1,22 +1,4 @@
-:root {
-  --bg-url: url('https://picsum.photos/1600/900?random=1');
-}
-
-body {
-  background-image: var(--bg-url);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: white;
-  text-align: center;
-  padding: 2rem;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
+/* Set a dynamic background image using a CSS variable */
 body {
   margin: 0;
   font-family: sans-serif;
@@ -27,56 +9,14 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   padding: 1rem;
+  background: var(--bg-url) no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: brightness(0.8);
 }
 
 h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-}
-
-.quote, .pause {
-  font-size: 1.3rem;
-  margin: 1rem 0;
-  font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
-}
-
-.button {
-  padding: 0.75rem 1.5rem;
-  background-color: #86b38f;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin: 1rem;
-  box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
-}
-
-.button:hover {
-  background-color: #729876;
-}
-
-.links a {
-  display: block;
-  color: #eee;
-  text-decoration: none;
-  margin: 0.5rem 0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-}
-
-.links a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
 }
