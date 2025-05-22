@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>A Gentle Space</title>
-
-  <!-- Link to your external CSS file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>A Gentle Space</h1>
+
   <div class="quote" id="quote">May all beings be happy.</div>
   <div class="pause" id="pause">Today’s Pause: Breathe in peace, breathe out love.</div>
+
   <button class="button" onclick="startBreath()">Pause & Breathe</button>
 
   <div class="links">
-    <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
-    <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
+    <a href="https://www.veganuary.com/" target="_blank" rel="noopener noreferrer">Try Vegan for 30 Days</a>
+    <a href="https://dhamma.org" target="_blank" rel="noopener noreferrer">About Vipassana Meditation</a>
     <a href="about.html">About This Space</a>
   </div>
 
@@ -24,12 +24,10 @@
     Made with metta and respect for all beings
   </footer>
 
-  <!-- JavaScript to insert a random background image -->
   <script>
     const randomNum = Math.floor(Math.random() * 1000);
     document.documentElement.style.setProperty('--bg-url', `url('https://picsum.photos/1600/900?random=${randomNum}')`);
 
-    // Optional: breathing alert for button
     function startBreath() {
       alert("Close your eyes. Breathe in… Breathe out…");
     }
