@@ -2,56 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>A Gentle Space</title>
+
+  <!-- Link to your external CSS file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>A Gentle Space</h1>
-  <div class="quote" id="quote"></div>
-  <div class="pause" id="pause"></div>
+  <div class="quote" id="quote">May all beings be happy.</div>
+  <div class="pause" id="pause">Today’s Pause: Breathe in peace, breathe out love.</div>
   <button class="button" onclick="startBreath()">Pause & Breathe</button>
 
   <div class="links">
-    <a href="https://www.veganuary.com/" target="_blank" rel="noopener noreferrer">Try Vegan for 30 Days</a>
-    <a href="https://dhamma.org" target="_blank" rel="noopener noreferrer">About Vipassana Meditation</a>
+    <a href="https://www.veganuary.com/" target="_blank">Try Vegan for 30 Days</a>
+    <a href="https://dhamma.org" target="_blank">About Vipassana Meditation</a>
     <a href="about.html">About This Space</a>
   </div>
 
-  <footer>Made with metta and respect for all beings</footer>
+  <footer>
+    Made with metta and respect for all beings
+  </footer>
 
+  <!-- Pause overlay message -->
+  <div id="pauseOverlay" class="pause-overlay">Pause. Observe your breath as it is.</div>
+
+  <!-- JavaScript to insert a random background image and handle pause button -->
   <script>
-    const quotes = [
-      "May all beings be happy.",
-      "Observe the breath. Observe the truth.",
-      "Peace begins on your plate.",
-      "Awareness and compassion go hand in hand.",
-      "To harm another is to harm oneself.",
-      "Liberation through self-observation.",
-      "Being vegan is practicing metta in action."
-    ];
-
-    const pauses = [
-      "Breathe in peace, breathe out love.",
-      "Let this moment be enough.",
-      "Feel the breath as it is.",
-      "Compassion begins in stillness.",
-      "You are here. That is enough.",
-      "Just for now, let go.",
-      "Metta for all beings, including you."
-    ];
-
-    document.getElementById("quote").innerText = quotes[Math.floor(Math.random() * quotes.length)];
-    document.getElementById("pause").innerText = "Today’s Pause: " + pauses[Math.floor(Math.random() * pauses.length)];
-
-    // Set random background image on root CSS variable
     const randomNum = Math.floor(Math.random() * 1000);
     document.documentElement.style.setProperty('--bg-url', `url('https://picsum.photos/1600/900?random=${randomNum}')`);
 
     function startBreath() {
-      alert("Close your eyes. Breathe in… Breathe out…");
+      const overlay = document.getElementById("pauseOverlay");
+      overlay.classList.add("show");
+
+      setTimeout(() => {
+        overlay.classList.remove("show");
+      }, 3000);
     }
   </script>
-  <div id="pauseOverlay" class="pause-overlay">Pause. Observe your breath as it is.</div>
 </body>
 </html>
