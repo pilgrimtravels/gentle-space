@@ -2,18 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About This Space</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – A Gentle Space</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>About This Space</h1>
-  <p>This space is offered as a gentle reminder to pause, breathe, and reconnect with the heart.</p>
-
-  <div class="links">
-    <a href="index.html">Home</a>
+  <div class="quote">
+    <p>This site is a small, quiet corner of the web, created as a reminder of two paths that support liberation from suffering:</p>
+    <ul>
+      <li><strong>Vipassana meditation</strong> – the path of insight, stillness, and observation</li>
+      <li><strong>Veganism</strong> – the path of compassion, non-harming, and respect for all beings</li>
+    </ul>
+    <p>There is no agenda here — only gentle encouragement to pause, reflect, and perhaps make choices with greater care.</p>
   </div>
 
-  <footer>Made with metta and respect for all beings</footer>
+  <div class="links">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <footer>
+    Made with metta and respect for all beings
+  </footer>
+
+  <script>
+    const randomNum = Math.floor(Math.random() * 1000);
+    document.documentElement.style.setProperty('--bg-url', `url('https://picsum.photos/1600/900?random=${randomNum}')`);
+  </script>
 </body>
 </html>
