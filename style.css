@@ -1,34 +1,86 @@
-/* Body and background */
-body {
+/* Reset some default styles */
+* {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: sans-serif;
   color: #fff;
   text-align: center;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  background: var(--bg-url, #333) no-repeat center center fixed;
-  background-size: cover;
+  align-items: center;
   padding: 1rem;
-  backdrop-filter: brightness(0.8);
+
+  background: var(--bg-url) no-repeat center center fixed;
+  background-size: cover;
+
+  /* Slight dark overlay for readability */
+  position: relative;
 }
 
-/* Page title */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35);
+  z-index: -1;
+}
+
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
-/* Quote and pause text */
 .quote, .pause {
   font-size: 1.3rem;
   margin: 1rem 0;
   font-style: italic;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
 }
 
-/* Button style */
-.b
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #86b38f;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 1rem 0 2rem 0;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #729876;
+}
+
+.links {
+  margin-bottom: 2rem;
+}
+
+.links a {
+  display: block;
+  margin: 0.5rem 0;
+  color: #eee;
+  text-decoration: none;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  font-size: 0.9rem;
+  margin-top: auto;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+}
