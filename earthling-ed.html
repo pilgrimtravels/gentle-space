@@ -6,35 +6,35 @@
   <title>Earthling Ed – A Gentle Space</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      max-width: 800px;
-      margin: 2rem auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .text {
+    .text, .video-wrapper {
       max-width: 800px;
       margin: 2rem auto;
       padding: 0 1rem;
       font-size: 1.1rem;
       line-height: 1.6;
+      text-align: center;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    a {
+      color: #729876;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <h1>Earthling Ed: A Voice for Compassion</h1>
+  <h1 style="text-align: center;">Earthling Ed: A Voice for Compassion</h1>
+
   <div class="text">
     <p>
       Earthling Ed is a powerful and thoughtful advocate for compassion toward animals.
@@ -46,15 +46,16 @@
     </p>
   </div>
 
-  <div class="video-container">
-    <iframe src="https://www.youtube-nocookie.com/embed/FGXDNuiz_dE" 
-            title="Earthling Ed Interview" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
+  <div class="video-wrapper">
+    <iframe 
+      src="https://www.youtube-nocookie.com/embed/FGXDNuiz_dE" 
+      title="Earthling Ed Interview" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
     </iframe>
   </div>
 
-  <div class="text" style="text-align: center;">
+  <div class="text">
     <p><a href="resources.html">← Back to Resources</a></p>
   </div>
 </body>
