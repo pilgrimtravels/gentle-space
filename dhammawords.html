@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buddhist Meditation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Cormorant Garamond', serif;
+            height: 100vh;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center;
+            background-size: cover;
+        }
+
+        #overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .content {
+            position: absolute;
+            color: #f8f8f8;
+            font-weight: 600;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            z-index: 2;
+            text-align: center;
+            will-change: transform, opacity;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            pointer-events: none;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        .content.main {
+            transition: opacity 5s ease-in-out, transform 4s ease-out;
+        }
+
+        .content .primary {
+            display: block;
+            font-size: 1em;
+            transition: font-size 4s ease-out;
+        }
+
+        .content .secondary {
+            display: block;
+            font-size: 0.5em;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 1em;
+            opacity: 0;
+            transition: all 4s ease-in-out;
+            line-height: 1.5;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+        }
+
+        .content.active {
+            opacity: 1;
+            z-index: 3;
+        }
+
+        .content.active .primary {
+            font-size: 6vmax;
+        }
+
+        .content.active .secondary {
+            opacity: 1;
+            font-size: 2.5vmax; /* Even larger explanation text */
+        }
+
+        .content.fading {
+            opacity: 0;
+            transition: opacity 6s ease-in-out; /* Slower fade out */
+        }
+
+        .content.background {
+            opacity: 0.6;
+            font-size: 1.5em;
+            color: rgba(248, 248, 248, 0.7);
+            z-index: 1;
+            transition: all 20s linear;
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay"></div>
+    <div id="content-container"></div>
+
+    <script>
+        // Content data
+        const words = [
+            {primary: "Anicca", secondary: "Impermanence - all conditioned things are transient"},
+            {primary: "Dukkha", secondary: "Suffering or unsatisfactoriness"},
+            {primary: "Anattā", secondary: "Non-self, absence of permanent self"},
+            {primary: "Metta", secondary: "Loving-kindness"},
+            {primary: "Karuna", secondary: "Compassion"}
+        ];
+
+        const sayings = [
+            {primary: "All conditioned things are impermanent.", secondary: "- The Buddha"},
+            {primary: "The mind is everything.", secondary: "- The Buddha"},
+            {primary: "Peace comes from within.", secondary: "- The Buddha"},
+            {primary: "Vipassana is the highest wisdom.", secondary: "- S.N. Goenka"}
+        ];
+
+        const container = document.getElementById('content-container');
+        let currentContent = null;
+        let nextContent = null;
+        let backgroundContents = [];
+
+        function createContent(item, isBackground = false) {
+            const el = document.createElement('div');
+            el.className = isBackground ? 'content background' : 'content main';
+            el.innerHTML = `
+                <span class="primary">${item.primary}</span>
+                <span class="secondary">${item.secondary}</span>
+            `;
+            
+            if (isBackground) {
+                const left = Math.random() * 80 + 10;
+                const top = Math.random() * 80 + 10;
+                el.style.left = `${left}%`;
+                el.style.top = `${top}%`;
+                el.style.transform = `translate(-50%, -50%) scale(${Math.random() * 0.5 + 0.8})`;
+                backgroundContents.push({
+                    element: el, 
+                    x: left, 
+                    y: top, 
+                    xSpeed: Math.random() * 0.1 - 0.05, 
+                    ySpeed: Math.random() * 0.1 - 0.05
+                });
+            }
+            
+            container.appendChild(el);
+            return el;
+        }
+
+        function initBackground() {
+            // Create background items
+            [...words.slice(0, 3), ...sayings.slice(0, 2)].forEach(item => {
+                const el = createContent(item, true);
+                setTimeout(() => {
+                    el.style.opacity = '0.6';
+                }, Math.random() * 2000);
+            });
+        }
+
+        function moveBackground() {
+            backgroundContents.forEach(item => {
+                item.x += item.xSpeed;
+                item.y += item.ySpeed;
+                
+                if (item.x < 5 || item.x > 95) {
+                    item.xSpeed *= -1;
+                    item.x = Math.max(5, Math.min(95, item.x));
+                }
+                if (item.y < 5 || item.y > 95) {
+                    item.ySpeed *= -1;
+                    item.y = Math.max(5, Math.min(95, item.y));
+                }
+                
+                item.element.style.left = `${item.x}%`;
+                item.element.style.top = `${item.y}%`;
+            });
+        }
+
+        function showNextContent() {
+            // If we have a "next" content ready, make it current
+            if (nextContent) {
+                currentContent = nextContent;
+                nextContent = null;
+                currentContent.classList.add('active');
+            }
+            
+            // Randomly select word or saying
+            const useWord = Math.random() > 0.5;
+            const items = useWord ? words : sayings;
+            const content = items[Math.floor(Math.random() * items.length)];
+            
+            // Create new content that will become "next"
+            const newContent = createContent(content);
+            newContent.style.left = '50%';
+            newContent.style.top = '50%';
+            
+            // Start growing to full size after short delay
+            setTimeout(() => {
+                newContent.classList.add('active');
+                nextContent = newContent;
+                
+                // Start fading out current content after new one appears
+                if (currentContent) {
+                    setTimeout(() => {
+                        currentContent.classList.add('fading');
+                        setTimeout(() => {
+                            if (currentContent && currentContent.parentNode) {
+                                container.removeChild(currentContent);
+                            }
+                        }, 6000);
+                    }, 1000);
+                }
+            }, 50);
+            
+            // Schedule next content change
+            setTimeout(showNextContent, 7000);
+        }
+
+        function init() {
+            initBackground();
+            setInterval(moveBackground, 50);
+            setTimeout(showNextContent, 1000);
+        }
+
+        window.addEventListener('load', init);
+    </script>
+</body>
+</html>
